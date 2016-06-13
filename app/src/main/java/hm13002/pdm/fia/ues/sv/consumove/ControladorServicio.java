@@ -2,6 +2,7 @@ package hm13002.pdm.fia.ues.sv.consumove;
 
 
 import android.content.Context;
+import android.database.Cursor;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -17,8 +18,12 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorServicio {
     public static String obtenerRespuestaPeticion(String url, Context ctx) {
@@ -26,8 +31,8 @@ public class ControladorServicio {
         // Estableciendo tiempo de espera del servicio
 
         HttpParams parametros = new BasicHttpParams();
-        HttpConnectionParams.setConnectionTimeout(parametros, 3000);
-        HttpConnectionParams.setSoTimeout(parametros, 5000);
+        HttpConnectionParams.setConnectionTimeout(parametros, 13000);
+        HttpConnectionParams.setSoTimeout(parametros, 15000);
         // Creando objetos de conexion
         HttpClient cliente = new DefaultHttpClient(parametros);
         HttpGet httpGet = new HttpGet(url);
@@ -104,8 +109,30 @@ public class ControladorServicio {
                 Toast.makeText(ctx, "Registro ingresado",Toast.LENGTH_LONG).show();
             else
                 Toast.makeText(ctx, "Error registro duplicado",Toast.LENGTH_LONG).show();
-        } catch (JSONException e) {
+        } catch (JSONException e) { 
             e.printStackTrace();
         }
     }
+
+    /*metodos JC*/
+    public static List<String> listaTipoEstablec(String json,Context ctx) {
+
+       // String json="http://localhost/WebServices/listaTipoEstablec.php";
+        List<String> listaTipo = new ArrayList<String>();
+        try {
+            JSONArray materiasJSON = new JSONArray(json);;
+            for (int i = 0; i < materiasJSON.length(); i++) {
+                JSONObject obj = materiasJSON.getJSONObject(i);
+                listaTipo.add(obj.getString("tipoEstablecimiento"));
+            }
+            return listaTipo;
+        } catch (Exception e) {
+            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG)
+                    .show();
+            listaTipo.add("holaMalo");
+            return listaTipo;
+        }
+
+    }
+
 }

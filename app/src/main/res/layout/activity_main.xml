@@ -23,6 +23,13 @@
         android:layout_weight="0.1"
         android:onClick="lanzarActividad"
         android:text="@string/consultar_cliente" />
+    <Button
+        android:id="@+id/btnconestportip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:onClick="lanzarActividad"
+        android:text="Consultar Establecimiento por tipo" />
 
 
 </LinearLayout>

@@ -23,6 +23,9 @@ public class MainActivity extends Activity {
             case R.id.button_cliente_consultar:
                 i = new Intent(this, ConsultarClienteActivity.class);
                 break;
+            case R.id.btnconestportip:
+                i = new Intent(this, ConsultaEstablecimientoPorTipo.class);
+                break;
 
         }
         if (i != null)

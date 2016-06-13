@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="hm13002.pdm.fia.ues.sv.consumove.ConsultaEstablecimientoPorTipo">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="75sp"
+        android:background="#00BCD4"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="@string/establecimiento"
+            android:id="@+id/textViewTituloCliente"
+            android:paddingLeft="10sp"
+            android:textColor="#ffffff"
+            android:textSize="50sp"
+            android:paddingTop="10sp"
+            android:layout_weight="0.59" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:paddingTop="90sp"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TE"
+                android:id="@+id/textViewDui" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerTE"
+                android:inputType="text"/>
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140sp"
+        android:id="@+id/linearLayout">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/consultar"
+            android:id="@+id/btnconsultar"
+            style="@style/btStyle"
+            android:layout_marginLeft="20sp"
+            android:onClick="insertarCliente"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/limpiar"
+            style="@style/btStyle"
+            android:layout_marginLeft="10sp"
+            android:onClick="limpiar"/>
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listaestablec"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
